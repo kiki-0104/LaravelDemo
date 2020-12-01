@@ -4,21 +4,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\InspiringController;
-
 use Illuminate\Http\Request;
+use App\Services\InspiringService;
 
-Route::get('/inspire', 'App\Http\Controllers\InspiringController@inspire');
 
 class InspiringController extends Controller
 
 {
-
-    /**
-
-     * @return string
-
-     */
 
     public function inspire()
 

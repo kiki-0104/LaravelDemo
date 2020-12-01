@@ -1,3 +1,27 @@
+<?php
+
+
+
+namespace App\Services;
+
+
+
+/**
+
+ * Class InspiringService
+
+ */
+
+class InspiringService
+
+{
+
+    /**
+
+     * @return string
+
+     */
+
 public function inspire()
 
 {
@@ -17,3 +41,4 @@ public function inspire()
     return $quotes[$key];
 
 } 
+}
