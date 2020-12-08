@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\InspiringController;
 
+
 use \Illuminate\Http\Request;
 
  
@@ -37,7 +38,7 @@ Route::get('/about_us', function () {
 
 }); 
 
-Route::get('/inspire', 'App\Http\ControllersInspiringController@inspire'); 
+Route::get('/inspire', 'App\Http\Controllers\InspiringController@inspire'); 
 
 Route::get('/test', function(){
 
