@@ -20,7 +20,19 @@ class Post extends Model
     protected $fillable = [
 
         'content'
+/**
+
+ * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+
+ */
+
 
     ];
+public function subject()
 
+{
+
+    return $this->belongsTo(Subject::class);
+
+} 
 } 

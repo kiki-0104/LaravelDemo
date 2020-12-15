@@ -1,10 +1,8 @@
 <?php
 
 use App\Http\Controllers\InspiringController;
-
-
 use \Illuminate\Http\Request;
-
+use App\Models\Subject;
  
 /*
 |--------------------------------------------------------------------------
@@ -56,14 +54,67 @@ Route::get('/edit', function(){
     return $post;
 
 }); 
-Route::get('/add', function(){
+Route::get('/add1', function(){
 
     $post = new App\Models\Post;
  
      $post->content = 'abcde';
+     $post->subject_id = 1;
  
      $post->save();
  
      return $post; 
  
  }); 
+ Route::get('/add2', function(){
+
+    $post = new App\Models\Post;
+ 
+     $post->content = 'ABCDE';
+     $post->subject_id = 2;
+ 
+     $post->save();
+ 
+     return $post; 
+ 
+ }); 
+ Route::get('/sub1', function(){
+
+    $post =new App\Models\Subject;
+
+    $post->name = 'comperter';
+
+    $post->save();
+
+    return $post;
+
+});
+Route::get('/sub2', function(){
+
+    $post =new App\Models\Subject;
+
+    $post-> name = 'network';
+
+    $post->save();
+
+    return $post;
+
+});
+Route::get('/get1', function(){
+
+    $post = App\Models\Subject::find(1);
+
+    $post = $subject-> posts;
+
+    return $post;
+
+}); 
+Route::resource('posts', 'PostController'); 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

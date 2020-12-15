@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     use HasFactory;
+    /**
+
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+
+ */
+
+public function posts()
+
+{
+
+    return $this->hasMany(Post::class);
+
+} 
 }
