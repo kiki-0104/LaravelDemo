@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Auth;
 
 class PostController extends Controller
 {
@@ -24,10 +25,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        if (is_null(Auth::user)){
-            return redirect(router('login'));
+        if (is_null(Auth::user())){
+            return redirect(route('login'));
         }else {
-            return view('post.create');
+            return view('posts.create');
         }
     }
 
@@ -39,7 +40,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post;
+
+        $post->content = $request->input('content');
+
+        $post->subject_id = 0;
+        $post ->user_id = 1 ;
+        $post->save();
+
+        return redirect(route('posts.index'));
     }
 
     /**
@@ -50,7 +59,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('posts.show', ['post' => $post]);
     }
 
     /**
@@ -84,6 +93,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect(route('posts.index'));
     }
 }
